@@ -1,6 +1,21 @@
 import { formData } from "@/types/registerForm";
 type makeoptional = Partial<formData>;
 
+
+type Option = { label: string; value: string };
+
+interface FormTagsProps extends Partial<formData> {
+  formik?: any;
+  type?: "text" | "password" | "textarea" | "select" | "email" | "number";
+  placeholder?: string;
+  name?: string;
+  value?: string | number;
+  options?: Option[];
+  className?: string;
+  [key: string]: any;
+}
+
+
 export function FormTags({
   formik,
   type = "text",
@@ -10,7 +25,7 @@ export function FormTags({
   options = [],
   className,
   ...rest
-}: makeoptional): JSX.Element {
+}: FormTagsProps):React.ReactElement {
 
   const fieldName = name ?? "";
   const fieldValue = formik ? formik.values[fieldName] : value;

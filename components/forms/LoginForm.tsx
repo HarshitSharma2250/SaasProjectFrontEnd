@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 
 import { FormTags } from "../common/tags";
 import { toast } from "react-toastify";
+import { LoginFormValues } from "@/types/registerForm";
+
 
 export default function LoginForm() {
   const { setToken,setUserId } = useAuthStore();
@@ -27,7 +29,7 @@ export default function LoginForm() {
     },
   })
 
-  const formik = useFormik({
+  const formik = useFormik<LoginFormValues>({
     initialValues: initialValues,
 
     validationSchema: LoginValidation,

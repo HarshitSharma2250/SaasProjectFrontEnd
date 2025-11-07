@@ -13,9 +13,9 @@ export default function SideBar() {
   const menuItems = [
     { name: "Dashboard", href: "/dashboard" },
     { name: "Liquidity Pool", href: "/dashboard/liquidityPool" },
-    { name: "Transaction Management", href: "/dashboard/transactions" },
-    { name: "Customer Management", href: "/dashboard/customers" },
-    { name: "Profile", href: "/dashboard/profile" },
+    // { name: "Transaction Management", href: "/dashboard/transactions" },
+    // { name: "Customer Management", href: "/dashboard/customers" },
+    // { name: "Profile", href: "/dashboard/profile" },
   ];
 
   return (

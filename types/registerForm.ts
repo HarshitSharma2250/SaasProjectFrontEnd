@@ -18,13 +18,30 @@ export interface registerFormValidation{
  gender: "male" | "female" | "other";
     age:number;
    password: string;
+   
+}
+
+export interface registerResponse extends registerFormValidation{
+      token:string;
+   userId:string;
+   message:string;
+   msg:string
 }
  
 
 export interface LoginFormValidation{
    email:string;
    password:string;
+   token:string;
+   userId:string;
+   message?:string;
 }
+
+// for initial login values-----------------------------------------------
+export interface LoginFormValues{
+  email: string;
+  password: string;
+};
 
 export interface matrixResponse{
    success:string;
@@ -32,7 +49,6 @@ export interface matrixResponse{
    newUser:number;
    activeCount:number;
    totalRevenue:number;
-   // onSuccess?:()=>void
 }
 
 export interface revenueUser{

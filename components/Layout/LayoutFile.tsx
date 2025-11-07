@@ -11,9 +11,10 @@ export default function LayoutFile({ children }: { children: React.ReactNode }) 
     "/dashboard/full-view",
   ];
 
-  const shouldHideLayout = hiddenLayoutRoutes.some((route) =>
-    pathname.startsWith(route.replace(/\[.*?\]/, ""))
-  );
+const currentPath = pathname ?? "";
+const shouldHideLayout = hiddenLayoutRoutes.some((route) =>
+  currentPath.startsWith(route.replace(/\[.*?\]/, ""))
+);
 
   if (shouldHideLayout) {
     return <main className="min-h-screen bg-gray-50 p-6">{children}</main>;

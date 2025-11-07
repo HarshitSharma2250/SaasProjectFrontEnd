@@ -6,8 +6,8 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 export default function UserRegistrationChart() {
     const options = {
         chart: {
+            type: "area" as const,
             width: 360,
-            type: "area",
             background: "transparent",
             toolbar: {
                 show: false,
@@ -20,7 +20,7 @@ export default function UserRegistrationChart() {
             },
         },
         fill: {
-            type: "gradient",
+            type: "gradient" as const,
             gradient: {
                 shadeIntensity: 1,
                 opacityFrom: 0.1,
@@ -73,7 +73,7 @@ export default function UserRegistrationChart() {
         },
         stroke: {
             width: 2,
-            curve: "straight",
+            curve: "straight" as const,
         },
     };
 
