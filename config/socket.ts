@@ -8,7 +8,13 @@ export const connectSocket = (): void => {
 
   if (!token || !userId || socket) return; // Already connected or missing creds
 
-  socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4500" || "https://saasprojectrivisionbackend.onrender.com", {
+const backendURL =
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://localhost:4500"
+    : "https://saasprojectrivisionbackend.onrender.com");
+
+  socket = io(backendURL, {
     query: { userId },
     transports: ["websocket"],
     autoConnect: true,
