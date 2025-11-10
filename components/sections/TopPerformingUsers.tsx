@@ -3,6 +3,7 @@
 import { useAuthStore } from "@/config/zustand/loginStore"
 import { UserRevinueData } from "@/services/dashboardServices"
 import { useQuery } from "@tanstack/react-query"
+import PdfGenerator from "../common/pdg generator/PdfGenerator"
 
 export default function TopPerformingUsers() {
 
@@ -13,10 +14,11 @@ export default function TopPerformingUsers() {
         queryFn: () => UserRevinueData(token)
     })
 
-    console.log("check user-revinue-data----", data)
-
     return (
         <>
+        <PdfGenerator data={data || []}/>
+
+
             <table className="mt-5 h-89">
                 <thead>
              <tr>
