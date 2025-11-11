@@ -34,7 +34,7 @@ export default function Dashboard() {
         {/* Total Transaction (Normal width) */}
         <div className="bg-white p-5 rounded-xl shadow-md flex flex-col">
           <h3 className="text-center font-semibold mb-2">Total Transaction</h3>
-          <h3 className="font-bold text-center mb-4">
+          <h3 className="font-bold text-startr mb-4">
             ₹ {trnasection.toLocaleString()}
           </h3>
           <TransectionVolumeChart />
@@ -42,7 +42,7 @@ export default function Dashboard() {
 
         {/* Top Performing Users (Normal width) */}
         <div className="bg-white p-5 rounded-xl shadow-md flex flex-col">
-          <h3 className="text-center font-semibold mb-3">
+          <h3 className="text-center font-semibold">
             Top Revenue Generated Users
           </h3>
           <TopPerformingUsers />
