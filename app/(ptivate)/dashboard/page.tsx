@@ -1,13 +1,10 @@
 'use client';
 
+import ExchangeRateChart from "@/components/sections/charts/exchangeRateChart";
 import TransectionVolumeChart from "@/components/sections/charts/TransectionVolumeChart";
 import UserRegistrationChart from "@/components/sections/charts/userRegistratioChart";
 import DashBoardSections from "@/components/sections/dashaordSection";
 import TopPerformingUsers from "@/components/sections/TopPerformingUsers";
-
-// import { useRouter } from 'next/navigation';
-
-
 
 
 export default function Dashboard() {
@@ -40,6 +37,16 @@ export default function Dashboard() {
   <TopPerformingUsers/>
 </div>
 
+
+
+</section>
+
+
+<section className="flex gap-2 mt-10 items-center gap-5 flex-wrap justify-between">
+  <div className="bg-[#fff] p-5 rounded-xl">
+  <h3 className="text-center font-bold">Exchange Rate Chart</h3>
+  <ExchangeRateChart/>
+</div>
 </section>
 
 

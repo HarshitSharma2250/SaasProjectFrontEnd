@@ -20,7 +20,7 @@ export default function DashBoardSections() {
     const sectionClass = `flex gap-7 items-center shadow-md px-4 py-2 rounded-xl bg-white`
 
     return (
-        <div className="flex justify-between w-full  flex-wrap" >
+        <div className="flex justify-between w-full  flex-wrap mt-2" >
             <section className={sectionClass}>
                 <div className="w-15 h-15 bg-gray-200 flex justify-center items-center  rounded-full ">
                     <Image src={matrixImage} alt="matrix-image" width={30} height={30} />
