@@ -13,7 +13,7 @@ import { useAuthStore } from "@/config/zustand/loginStore";
 
 export default function RegisterFormComponent() {
 
-  const { setToken ,setUserId} = useAuthStore()
+  const { setToken, setUserId } = useAuthStore()
   const router = useRouter()
 
   const { mutate, isPending } = useMutation({
@@ -22,7 +22,7 @@ export default function RegisterFormComponent() {
     onSuccess: (data) => {
       console.log("check data getting-", data)
       setToken(data?.token)
-       setUserId(data?.userId)
+      setUserId(data?.userId)
       toast.success(data?.msg);
       router.push('/dashboard');
     }
@@ -49,15 +49,15 @@ export default function RegisterFormComponent() {
       >
         <h2 className="text-center text-4xl font-bold">Register Form</h2>
 
-        <FormTags className={`${baseclasses}`} type="text" label="userName" name="name" formik={formik} placeholder="write your name" />
+        <FormTags className={`${baseclasses}`} type="text" label="userName" name="name" formik={formik} placeholder="write your name" data-testid="registerName" />
 
-        <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" />
+        <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" data-testid="registerEmail" />
 
-        <FormTags className={`${baseclasses}`} type="number" required label="Age: " name="age" formik={formik} placeholder="enter your age" />
+        <FormTags className={`${baseclasses}`} type="number" required label="Age: " name="age" formik={formik} placeholder="enter your age" data-testid="registerAge" />
 
-        <FormTags className={`${baseclasses}`} type="text" required label="Number: " name="number" formik={formik} placeholder="enter your mobile number" />
+        <FormTags className={`${baseclasses}`} type="text" required label="Number: " name="number" formik={formik} placeholder="enter your mobile number" data-testid="registerNumber" />
 
-        <FormTags className={`${baseclasses}`} type="password" required label="PAssword: " name="password" formik={formik} placeholder="***...." />
+        <FormTags className={`${baseclasses}`} type="password" required label="PAssword: " name="password" formik={formik} placeholder="***...." data-testid="registerPassword" />
 
         <FormTags className={`${baseclasses}`} type="select" required label="Gender: " name="gender" options={genderOption} formik={formik} data-testid={`gender-select`} />
 

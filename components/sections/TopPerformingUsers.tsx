@@ -16,23 +16,23 @@ export default function TopPerformingUsers() {
 
     return (
         <>
-        <PdfGenerator data={data || []}/>
+            <PdfGenerator data={data || []} />
 
 
             <table className="mt-5 h-73 ">
                 <thead>
-             <tr>
-                       <th className="px-2">Name </th>
-                    <th className="px-3">Email</th>
-                    <th>Revenue</th>
-             </tr>
+                    <tr>
+                        <th className="px-2">Name </th>
+                        <th className="px-3">Email</th>
+                        <th>Revenue</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {
-                        data && data.slice(0,5).map((ele) => (
+                        data && data.slice(0, 5).map((ele) => (
                             <tr key={ele._id}>
                                 <td className="px-4">{ele.name}</td>
-                                <td className="px-8">{ele.email.slice(0,10)+"..."}</td>
+                                <td className="px-8">{ele.email.slice(0, 10) + "..."}</td>
                                 <td className="px-4">{ele.revenue}</td>
                             </tr>
                         ))

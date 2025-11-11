@@ -1,5 +1,5 @@
 // __tests__/register.test.tsx
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -8,10 +8,10 @@ import { register } from "@/services/authenticationFOrms";
 import { useAuthStore } from "@/config/zustand/loginStore";
 import { useRouter } from "next/navigation";
 
-// ✅ Setup QueryClient
+// Setup QueryClient
 const queryClient = new QueryClient();
 
-// ✅ Mock external modules
+//  Mock external modules
 jest.mock("axios");
 
 jest.mock("next/navigation", () => ({
@@ -31,7 +31,7 @@ jest.mock("react-toastify", () => ({
   toast: { success: jest.fn(), error: jest.fn() },
 }));
 
-// ✅ Axios mock
+// Axios mock
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("Register Form", () => {
@@ -78,6 +78,70 @@ describe("Register Form", () => {
 
     expect(screen.getByRole("button", { name: /Register/i })).toBeInTheDocument();
   });
+
+
+  test("test-input fileds with values and submit button clicked with all data", async () => {
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <RegisterFormComponent />
+      </QueryClientProvider>
+    )
+
+    let arr = [
+      {
+        testId: "registerName",
+        value: "harshit"
+      },
+      {
+        testId: "registerName",
+        value: "harshit"
+      },
+      {
+        testId: "registerEmail",
+        value: "sharma.harshit295@gmail.com"
+      },
+      {
+        testId: "registerAge",
+        value: 22
+      },
+      {
+        testId: "registerNumber",
+        value: 9999999999
+      },
+      {
+        testId: "registerPassword",
+        value: 2123223
+      },
+      {
+        testId: "gender-select",
+        value: "male"
+      },
+    ]
+
+
+    arr.forEach((ele) => {
+      const FieldName = screen.getByTestId(ele.testId)
+      fireEvent.change(FieldName, {
+        target: { value: ele.value }
+      })
+    })
+
+    const buttonCheck = screen.getByRole("button", { name: /Register/i });
+
+
+    fireEvent.click(buttonCheck)
+
+    await waitFor(() => expect(mockMutate).toHaveBeenCalledWith({
+      name: "harshit",
+      email: "sharma.harshit295@gmail.com",
+      age: "22",
+      number: "9999999999",
+      password: "2123223",
+      gender: "male"
+    }))
+
+  })
 
   test("calls API successfully", async () => {
     const fakeResponse = { data: { message: "registration done" } };

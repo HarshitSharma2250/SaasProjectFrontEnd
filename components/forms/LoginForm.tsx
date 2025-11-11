@@ -12,8 +12,8 @@ import { useRouter } from "next/navigation";
 
 
 export default function LoginForm() {
-  const { setToken,setUserId } = useAuthStore();
-const router=useRouter()
+  const { setToken, setUserId } = useAuthStore();
+  const router = useRouter()
 
 
   const { mutate, isPending } = useMutation({
@@ -23,7 +23,7 @@ const router=useRouter()
       setToken(data?.token)
       setUserId(data?.userId)
       toast.success(data?.msg);
-        router.push('/dashboard');
+      router.push('/dashboard');
     },
     onError: (err: any) => {
       console.log("chcek cerro--", err?.response)
@@ -60,7 +60,7 @@ const router=useRouter()
 
 
 
-      <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" data-testid="loginEmail"/>
+      <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" data-testid="loginEmail" />
 
       <FormTags className={`${baseclasses}`} type="password" required label="Password: " name="password" formik={formik} placeholder="***...." data-testid="loginPassword" />
 
