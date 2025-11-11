@@ -39,7 +39,7 @@ export default function TopPerformingUsers() {
 
           <tbody>
             {data && data.length > 0 ? (
-              data.slice(0, 5).map((ele) => (
+              data.slice(0, 6).map((ele) => (
                 <tr
                   key={ele._id}
                   className="border-t hover:bg-gray-50 transition-colors"
