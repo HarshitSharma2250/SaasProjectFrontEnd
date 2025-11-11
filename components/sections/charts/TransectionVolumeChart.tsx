@@ -50,7 +50,7 @@ export default function TransactionVolumeChart() {
             labels: {
                 style: {
                     colors: "#B0BBD5",
-                    fontSize: "11px",
+                    fontSize: "12px",
                     fontWeight: 600,
                 },
             },

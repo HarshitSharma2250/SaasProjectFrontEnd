@@ -59,7 +59,7 @@ export default function UserRegistrationChart() {
             labels: {
                 style: {
                     colors: "#B0BBD5",
-                    fontSize: "9px",
+                    fontSize: "12px",
                     fontWeight: 700,
                 },
             },

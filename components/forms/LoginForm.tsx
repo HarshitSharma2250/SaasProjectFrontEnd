@@ -8,11 +8,12 @@ import { useFormik } from "formik";
 import { FormTags } from "../common/tags";
 import { toast } from "react-toastify";
 import { LoginFormValues } from "@/types/registerForm";
+import { useRouter } from "next/navigation";
 
 
 export default function LoginForm() {
   const { setToken,setUserId } = useAuthStore();
-
+const router=useRouter()
 
 
   const { mutate, isPending } = useMutation({
@@ -21,7 +22,8 @@ export default function LoginForm() {
     onSuccess: (data) => {
       setToken(data?.token)
       setUserId(data?.userId)
-      toast.success(data?.message);
+      toast.success(data?.msg);
+        router.push('/dashboard');
     },
     onError: (err: any) => {
       console.log("chcek cerro--", err?.response)
@@ -58,9 +60,9 @@ export default function LoginForm() {
 
 
 
-      <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" />
+      <FormTags className={`${baseclasses}`} type="email" required label="Email: " name="email" formik={formik} placeholder="myemail123@gmail.com" data-testid="loginEmail"/>
 
-      <FormTags className={`${baseclasses}`} type="password" required label="Password: " name="password" formik={formik} placeholder="***...." />
+      <FormTags className={`${baseclasses}`} type="password" required label="Password: " name="password" formik={formik} placeholder="***...." data-testid="loginPassword" />
 
       <button
         type="submit"

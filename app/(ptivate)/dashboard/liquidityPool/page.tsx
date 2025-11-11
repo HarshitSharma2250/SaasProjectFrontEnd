@@ -1,9 +1,14 @@
-import React from 'react'
+"use client"
 
- const liquidityPool = () => {
+
+ const LiquidityPool = () => {
+
   return (
-    <div>page</div>
+    <div>
+      
+dadsadsad
+    </div>
   )
 }
 
-export default liquidityPool
+export default LiquidityPool

@@ -19,7 +19,7 @@ export default function TopPerformingUsers() {
         <PdfGenerator data={data || []}/>
 
 
-            <table className="mt-5 h-89">
+            <table className="mt-5 h-73 ">
                 <thead>
              <tr>
                        <th className="px-2">Name </th>
@@ -29,7 +29,7 @@ export default function TopPerformingUsers() {
                 </thead>
                 <tbody>
                     {
-                        data && data.slice(0,6).map((ele) => (
+                        data && data.slice(0,5).map((ele) => (
                             <tr key={ele._id}>
                                 <td className="px-4">{ele.name}</td>
                                 <td className="px-8">{ele.email.slice(0,10)+"..."}</td>

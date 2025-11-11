@@ -61,7 +61,7 @@ const PdfGenerator: React.FC<PdfGeneratorProps> = ({ data }) => {
   };
 
   return (
-    <div className="p-2 text-right">
+    <div className="p-2 text-right" data-testid="pdfGenerator">
       <button
         onClick={generatePDF}
         className="bg-blue-600 text-white px-3 py-1 rounded mt-4 hover:bg-blue-700"

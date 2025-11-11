@@ -34,7 +34,7 @@ export interface LoginFormValidation{
    password:string;
    token:string;
    userId:string;
-   message?:string;
+   msg?:string;
 }
 
 // for initial login values-----------------------------------------------

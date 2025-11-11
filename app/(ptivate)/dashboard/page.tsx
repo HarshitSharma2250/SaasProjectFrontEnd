@@ -23,19 +23,19 @@ export default function Dashboard() {
 
 <section className="flex gap-2 mt-10 items-center gap-5 flex-wrap justify-between">
 
- <div className="bg-[#fff] p-5 ">
+ <div className="bg-[#fff] p-5 rounded-xl">
   <h3 className="text-center">Registration Chart</h3>
    <UserRegistrationChart/>
  </div>
 
-<div className="bg-[#fff] p-5 ">
+<div className="bg-[#fff] p-5 rounded-xl">
   <h3 className="text-center">Total Transection</h3>
    <h3 className="font-bold"> ₹ :  {trnasection}</h3>
   <TransectionVolumeChart/>
 </div>
 
 
-<div className="bg-[#fff] p-5 ">
+<div className="bg-[#fff] p-5 rounded-xl">
   <h3 className="text-center font-bold">Top Revinue Generated Users</h3>
   <TopPerformingUsers/>
 </div>

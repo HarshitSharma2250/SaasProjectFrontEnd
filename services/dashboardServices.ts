@@ -1,6 +1,5 @@
 import { ApiMethods } from "@/api/apiMethods";
 import { APIsRoutes } from "@/api/apiRoutes";
-import { useAuthStore } from "@/config/zustand/loginStore";
 import { matrixResponse, revenueUser } from "@/types/registerForm";
 import axios from "axios";
 
