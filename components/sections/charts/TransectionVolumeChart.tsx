@@ -10,7 +10,6 @@ export default function TransactionVolumeChart() {
     const options = {
         chart: {
             type: "bar" as const,
-            width: 360,
             toolbar: { show: false },
             background: "transparent",
         },
@@ -68,14 +67,6 @@ export default function TransactionVolumeChart() {
     ];
 
     return (
-        <>
-            <Chart
-                options={options}
-                series={series}
-                type="bar"
-                height={335}
-                width={360}
-            />
-        </>
+  <Chart options={options} series={series} type="bar" height={335} width="100%" />
     );
 }

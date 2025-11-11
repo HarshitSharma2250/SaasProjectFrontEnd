@@ -141,15 +141,13 @@ export default function ExchangeRateChart() {
 
 
     return (
-        <>
             <Chart
                 options={options}
                 series={series}
                 type="area"
                 height={335}
-                width={700}
+               width="100%"
                 data-testid="ExchangeRateChart"
             />
-        </>
     )
 }

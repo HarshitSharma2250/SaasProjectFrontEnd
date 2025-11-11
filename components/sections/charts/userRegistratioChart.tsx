@@ -7,7 +7,6 @@ export default function UserRegistrationChart() {
     const options = {
         chart: {
             type: "area" as const,
-            width: 360,
             background: "transparent",
             toolbar: {
                 show: false,
@@ -85,14 +84,6 @@ export default function UserRegistrationChart() {
     ];
 
     return (
-        <  >
-            <Chart
-                options={options}
-                series={series}
-                type="area"
-                height={360}
-                width={700}
-            />
-        </>
+  <Chart options={options} series={series} type="area" height={360} width="100%" />
     );
 }

@@ -6,49 +6,56 @@ import UserRegistrationChart from "@/components/sections/charts/userRegistratioC
 import DashBoardSections from "@/components/sections/dashaordSection";
 import TopPerformingUsers from "@/components/sections/TopPerformingUsers";
 
-
 export default function Dashboard() {
   const trnasection = 200000;
 
-
-
   return (
-    <div>
-      <section >
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* === Top metrics section === */}
+      <section className="mb-10">
         <DashBoardSections />
       </section>
 
-      <section className="flex gap-2 mt-10 items-center gap-5 flex-wrap justify-between">
-
-        <div className="bg-[#fff] p-5 rounded-xl shadow-md">
-          <h3 className="text-center">Registration Chart</h3>
+      {/* === Charts Section === */}
+      <section
+        className="
+          grid
+          gap-6
+          [grid-template-columns:repeat(auto-fit,minmax(350px,1fr))]
+          auto-rows-auto
+        "
+      >
+        {/* Registration Chart (Big, spans 2 columns on large screens) */}
+        <div className="bg-white p-5 rounded-xl shadow-md flex flex-col lg:col-span-2">
+          <h3 className="text-center font-semibold mb-3">Registration Chart</h3>
           <UserRegistrationChart />
         </div>
 
-        <div className="bg-[#fff] p-5 rounded-xl shadow-md">
-          <h3 className="text-center">Total Transection</h3>
-          <h3 className="font-bold"> ₹ :  {trnasection}</h3>
+        {/* Total Transaction (Normal width) */}
+        <div className="bg-white p-5 rounded-xl shadow-md flex flex-col">
+          <h3 className="text-center font-semibold mb-2">Total Transaction</h3>
+          <h3 className="font-bold text-center mb-4">
+            ₹ {trnasection.toLocaleString()}
+          </h3>
           <TransectionVolumeChart />
         </div>
 
-
-        <div className="bg-[#fff] p-5 rounded-xl shadow-md">
-          <h3 className="text-center font-bold">Top Revinue Generated Users</h3>
+        {/* Top Performing Users (Normal width) */}
+        <div className="bg-white p-5 rounded-xl shadow-md flex flex-col">
+          <h3 className="text-center font-semibold mb-3">
+            Top Revenue Generated Users
+          </h3>
           <TopPerformingUsers />
         </div>
-
       </section>
 
-
-      <section className="flex gap-2 mt-10 items-center gap-5 flex-wrap justify-between">
-        <div className="bg-[#fff] p-5 rounded-xl shadow-md">
-          <h3 className="text-center font-bold">Exchange Rate Chart</h3>
+      {/* === Exchange Rate Chart === */}
+      <section className="mt-10">
+        <div className="bg-white p-5 rounded-xl shadow-md">
+          <h3 className="text-center font-semibold mb-3">Exchange Rate Chart</h3>
           <ExchangeRateChart />
         </div>
       </section>
-
-
-
     </div>
   );
 }
